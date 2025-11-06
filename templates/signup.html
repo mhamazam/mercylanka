@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef2f3;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .signup-container {
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #218838;
+    }
+    .msg {
+      color: red;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="signup-container">
+    <h2>Mercy Lanka</h2>
+      <h3>Member Sign Up</h3>
+    <h2></h2>
+    <form method="POST" onsubmit="return validateSignup()"> {% csrf_token %}
+      <input type="text" id="fullname" placeholder="Full Name" name="fullname" required />
+      <input type="text" id="username" placeholder="User Name"  name="username" required/>
+      <input type="email" id="email" placeholder="Email" name="email" required />
+      <input type="password" id="password" placeholder="Password" name="pass1" required />
+      <input type="password" id="confirmPassword" placeholder="Confirm Password" name="pass2" required />
+      <button type="submit">Sign Up</button>
+      <p class="msg" id="message"></p>
+      <h3>Already a User ? <a href="/handlesignin"> Login</a></h3>
+      <a href="/" class="btn btn-light btn-home">Go Back to Home</a>
+    </form>
+  </div>
+
+  <script>
+    function validateSignup() {
+      const fullname = document.getElementById("fullname").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirmPassword").value;
+      const message = document.getElementById("message");
+
+      if (password !== confirmPassword) {
+        message.textContent = "Passwords do not match!";
+        return false;
+      }
+
+      if (password.length < 6) {
+        message.textContent = "Password must be at least 6 characters long!";
+        return false;
+      }
+
+      alert(fullname + "  Your signup form has been submitted. Checking your details..." + "!");
+      message.textContent = "";
+      return true;
+    }
+  </script>
+</body>
+</html>

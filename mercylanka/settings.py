@@ -23,9 +23,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-h*0%&iuk_-qhi8qi15j%4&bod@i#pkflz_y(k5yw^(1%a6&1^i'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['mercylanka.onrender.com']  # replace with your Render URL
+
 
 
 # Application definition

@@ -26,8 +26,11 @@ SECRET_KEY = 'django-insecure-h*0%&iuk_-qhi8qi15j%4&bod@i#pkflz_y(k5yw^(1%a6&1^i
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    "www.cookiesjar.cloud",
-    'mercylanka.onrender.com']  # replace with your Render URL
+    "www.ml.cookiesjar.cloud",
+    "ml.cookiesjar.cloud",
+    "mlproject.onrender.com",
+]
+ # replace with your Render URL
 
 
 
